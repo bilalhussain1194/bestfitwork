@@ -1,0 +1,58 @@
+{% extends 'master.html'%}
+{%load crispy_forms_tags%}
+
+{% block contentholder%}
+<div class="jumbotron">
+  <h1 class="display-4">Question Bank Form</h1>
+  <p class="lead">Enter the questions</p>
+  <hr class="my-4">
+  <form method="post" action="" autocomplete="off" >
+
+    {%csrf_token%}
+ <div class="row">
+     <div class="col-md-12">
+         {{form.category|as_crispy_field}}
+     </div>
+
+ </div>
+      <div class="row">
+     <div class="col-md-12">
+   {{form.question|as_crispy_field}}
+     </div>
+
+ </div>
+
+      <div class="row">
+          <div class="col-md-6">
+         {{form.option1|as_crispy_field}}
+          </div>
+           <div class="col-md-6">
+           {{form.option2|as_crispy_field}}
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+          {{form.option3|as_crispy_field}}
+          </div>
+           <div class="col-md-6">
+         {{form.option4|as_crispy_field}}
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-6">
+         {{form.correct_answer|as_crispy_field}}
+          </div>
+           <div class="col-md-6">
+<br>
+               <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> save</button>
+
+          </div>
+      </div>
+
+
+  </form>
+
+</div>
+
+{%endblock%}

@@ -1,0 +1,70 @@
+{%extends 'master.html'%}
+
+
+      {%block contentholderheader%}
+<script type="text/javascript">
+    $(document).ready( function () {
+    $('#questionbanktable').DataTable();
+} );
+</script>
+    {% endblock%}
+
+
+{%block contentholder%}
+
+
+<div class="jumbotron">
+  <h1 class="display-4">Questions Bank</h1>
+  <p class="lead">All the questions are available here </p>
+  <hr class="my-4">
+  <table id="questionbanktable" class="Datatable table table-border-less">
+      <thead>
+
+          <tr>
+              <td>Question</td>
+              <td>Correct answer</td>
+              <td>Category</td>
+              <tD>
+                  <a href="enterquestions" class="btn btn-outline-success ">
+                  <i class=" fas fa-plus"></i>AddNew
+              </a>
+
+              </td>
+
+
+          </tr>
+
+      </thead>
+
+      <tbody>
+      {%for question in questions %}
+      <tr>
+          <td>{{question.question}}  </td>
+
+          <td>{{question.correct_answer}}  </td>
+
+          <td>{{question.category}}  </td>
+
+               <td><a  href="{% url 'update_question' question.id %}" class=" btn text-secondary px-0"><i class="far fa-edit fa-lg"></i></a>
+
+            <a  href="{% url 'delete_question' question.id %}" class=" btn text-secondary px-0"><i class="far fa-trash-alt fa-lg text-danger"></i></a>
+          </td>
+          
+
+
+      </tr>
+{%endfor%}
+      </tbody>
+      <tfoot>
+      <tr>
+          <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+      </tr>
+      </tfoot>
+  </table>
+</div>
+
+
+{% endblock %}

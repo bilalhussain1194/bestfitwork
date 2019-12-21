@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'besfit.apps.BesfitConfig'
+    'besfit.apps.BesfitConfig',
+    'crispy_forms',
 ]
+CRISPY_FORMS_PACK='bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
