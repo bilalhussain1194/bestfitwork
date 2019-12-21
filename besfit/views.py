@@ -31,10 +31,16 @@ def enterquestions(request,id=0):
 
 
   else:
-      form = questionbankform(request.POST)
+      if id==0:
+          form = questionbankform(request.POST)
+          return HttpResponseRedirect("")
+      else:
+        update_question=questions.objects.get(pk=id)
+        form = questionbankform(request.POST,instance=update_question)
       if form.is_valid():
           form.save()
-          return HttpResponseRedirect("")
+      return redirect('/home/questionbank')
+
 
 def deletequestion(request,delete_id):
      delete_question=questions.objects.get(pk=delete_id)
