@@ -10,7 +10,7 @@ class result(models.Model):
     question_attempt=models.IntegerField(default=0)
     correct_answers=models.IntegerField(default=0)
 class questions(models.Model):
-
+    answer_choices=(("A","A"),("B","B"),("C","C"),("D","D"))
     category_type= (
     ("english", "english"), ("urdu", "urdu"), ("math", "math"))
 
@@ -18,10 +18,10 @@ class questions(models.Model):
     question=models.CharField(max_length=200,default="")
 
 
-    option1=models.CharField(max_length=100,blank=True,null=True)
-    option2 = models.CharField(max_length=100,blank=True,null=True)
-    option3 = models.CharField(max_length=100,blank=True,null=True)
-    option4 = models.CharField(max_length=100,blank=True,null=True)
-    correct_answer = models.IntegerField()
+    A=models.CharField(max_length=100,blank=True)
+    B = models.CharField(max_length=100,blank=True)
+    C = models.CharField(max_length=100,blank=True)
+    D = models.CharField(max_length=100,blank=True)
+    correct_answer = models.CharField(max_length=2,choices=answer_choices)
 
 

@@ -17,14 +17,15 @@
   <h1 class="display-4">Questions Bank</h1>
   <p class="lead">All the questions are available here </p>
   <hr class="my-4">
-  <table id="questionbanktable" class="Datatable table table-border-less">
+  <table id="questionbanktable" class="Datatable table table-border-less ">
       <thead>
 
           <tr>
               <td>Question</td>
+              <td>Correct option</td>
               <td>Correct answer</td>
               <td>Category</td>
-              <tD>
+              <td>
                   <a href="enterquestions" class="btn btn-outline-success ">
                   <i class=" fas fa-plus"></i>AddNew
               </a>
@@ -37,11 +38,12 @@
       </thead>
 
       <tbody>
-      {%for question in questions %}
+      {%for question in questionall %}
       <tr>
           <td>{{question.question}}  </td>
 
           <td>{{question.correct_answer}}  </td>
+          <td>{{question.correct_answer_option}}  </td>
 
           <td>{{question.category}}  </td>
 
@@ -61,6 +63,7 @@
              <td></td>
              <td></td>
              <td></td>
+          <td></td>
       </tr>
       </tfoot>
   </table>
